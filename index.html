@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação financeira</title>
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container" id="emprestimo">
+        <h1>Calculadora de empréstimos</h1>
+        <p>Infome o valor do empréstimo: </p>
+        <input type="number" name="txtpv" id="txtpv" value="8000">
+        <p>Infome o número de parcelas: </p>
+        <input type="number" name="txt-parcelas" id="txt-parcelas" value="96">
+        <p>Infome o valor das parcelas: </p>
+        <input type="number" name="txt-pmt" id="txt-pmt" value="202.22">
+        <button type="submit" id="btncalc" onclick="gerarValor()">Calcular</button>
+        <p>Valor total a pagar</p>
+        <div id="res-emp"> </div>
+    </div>
+
+    <div class="container" id="juros">
+        <h1>Calculadora de Juros</h1>
+        <p>Infome o valor do empréstimo: </p>
+        <input type="number" name="pv1" id="pv1" value="1212">
+        <p>Infome o tempo: </p>
+        <input type="number" name="tempo" id="tempo" value="2">
+        <p>Infome a taxa de juros em %: </p>
+        <input type="number" name="taxa" id="taxa" value="6.17">
+        <button type="submit" id="calc-juros" onclick="gerarJuros()">Calcular</button>
+        <div id="res-juros"> </div>
+    </div>
+
+</body>
+
+</html>
