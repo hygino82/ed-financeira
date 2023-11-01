@@ -1,8 +1,4 @@
-import { Pagamento } from "../../types/matfin-types";
-
-type Pagamentos = {
-    pagamentos: Pagamento[];
-}
+import { Pagamentos } from "../../types/matfin-types";
 
 export function TabelaPagamentos({ pagamentos }: Pagamentos) {
     return (
@@ -20,10 +16,11 @@ export function TabelaPagamentos({ pagamentos }: Pagamentos) {
                 {pagamentos.map(parcela => {
                     return (
                         <tr key={parcela.numero}>
-                            <th scope="row">{parcela.pmt}</th>
-                            <td>{parcela.juros}</td>
-                            <td>{parcela.amortizacao}</td>
-                            <td>{parcela.saldo}</td>
+                            <th scope="row">{parcela.numero}</th>
+                            <th >{parcela.pmt.toFixed(2)}</th>
+                            <td>{parcela.juros.toFixed(2)}</td>
+                            <td>{parcela.amortizacao.toFixed(2)}</td>
+                            <td>{parcela.saldo.toFixed(2)}</td>
                         </tr>
                     );
                 })}
