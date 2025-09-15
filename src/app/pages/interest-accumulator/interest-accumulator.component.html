@@ -1,11 +1,11 @@
 <div class="container">
   <label for="fee">Valor da taxa</label> <br>
-  <input type="number" [value]="taxValue"/><br>
+  <input type="number" id="fee"[value]="taxValue" /><br>
   <button (click)="addTax()" class="btn btn-primary">Adicionar</button>
 
   <p>Total de taxas adicionadas {{ numberOfFees }}</p>
-  <div *ngIf="taxAccumulator !== 1">
-    <p>Taxa acumulada {{ taxAccumulator }}</p>
+  <div *ngIf="taxAccumulator !== 0">
+    <p>Taxa acumulada {{ taxAccumulator -1}}</p>
   </div>
 
 </div>
@@ -13,23 +13,23 @@
 <div class="container">
   <table class="table table-striped table-hover table-bordered">
     <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Taxa</th>
-      <th scope="col">Acumulado</th>
-      <th scope="col">Ações</th>
-    </tr>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Taxa</th>
+        <th scope="col">Acumulado</th>
+        <th scope="col">Ações</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of taxItens">
-      <th scope="row">{{ item.position + 1 }}</th>
-      <td>{{ item.taxValue }}%</td>
-      <td>{{ (item.accumulatedTax - 1) * 100 | number: '1.2-2' }}%</td>
-      <td>
-        <button class="btn btn-warning">Editar</button>
-        <button class="btn btn-danger" (click)="removeTax(item.position,item.taxValue)">Remover</button>
-      </td>
-    </tr>
+      <tr *ngFor="let item of taxItens">
+        <th scope="row">{{ item.position + 1 }}</th>
+        <td>{{ item.taxValue }}%</td>
+        <td>{{ (item.accumulatedTax - 1) * 100 | number: '1.2-2' }}%</td>
+        <td>
+          <button class="btn btn-warning">Editar</button>
+          <button class="btn btn-danger" (click)="removeTax(item.position,item.taxValue)">Remover</button>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

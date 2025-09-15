@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {TaxItem} from '../../custom-types';
+import { Component, OnInit } from '@angular/core';
+import { TaxItem } from '../../custom-types';
 
 @Component({
   selector: 'app-interest-accumulator',
@@ -30,24 +30,24 @@ export class InterestAccumulatorComponent implements OnInit {
   }
 
   generateTableValues(taxList: number[]) {
-    let count = 1;
+    let count = 0;
     this.taxAccumulator = 1;
     this.taxItens = [];
 
     taxList.forEach(element => {
       const decimalValue = 1 + element / 100.0;
       this.taxAccumulator *= decimalValue;
-      this.taxItens.push({position: count++, taxValue: element, accumulatedTax: this.taxAccumulator});
+      this.taxItens.push({ position: count++, taxValue: element, accumulatedTax: this.taxAccumulator });
     });
 
     this.numberOfFees = taxList.length;
   }
 
-  removeTax(taxValue: number, index: number) {
-    if (taxValue && index) {
-      this.taxList.splice(index, taxValue)
-      this.generateTableValues(this.taxList);
-      alert(`${taxValue} has been removed.`);
-    }
+  removeTax(index: number, taxValue: number) {
+    this.taxList.splice(index, 1);
+    this.generateTableValues(this.taxList);
+    alert(`${taxValue} has been removed.`);
+    console.log(this.taxList);
   }
+
 }
